@@ -10,13 +10,24 @@ def display_board(board)
       #("   |   |   ")
       #("-----------")
       #("   |   |   ")
-  puts  " #{board[0]} | #{board[1]} | #{board[2]} "
-  puts  "-----------"
-  puts  " #{board[3]} | #{board[4]} | #{board[5]} "
-  puts  "-----------"
-  puts  " #{board[6]} | #{board[7]} | #{board[8]} "
-
+  # if the board length is not 9 print error message and exit
+  if board.length != 9
+    puts "Error: Invalid board length. Expected length 9, but got #{board.length}."
+    exit
+  end
   
+  # print each cell from the board
+  # i will be showing which element we would like to print
+  i = 0
+  # while i is less than 9(elements of the board)
+  while i < 9
+    # print the 3 elements of the row
+    puts " #{board[i]} | #{board[i+1]} | #{board[i+2]} "
+    # print line after row
+    puts "-----------"
+    # add 3 because each row contains 3 elements
+    i += 3
+  end
 end
 
 #'prints a blank board when the board array is empty' do
